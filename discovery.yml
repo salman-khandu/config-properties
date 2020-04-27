@@ -9,4 +9,5 @@ eureka:
 
 spring:
   application:
-    name: discovery
+    name: eureka-discovery
+  
