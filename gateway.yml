@@ -6,20 +6,20 @@ spring:
     gateway:
       routes:
       - id: ratingService
-        uri: lb://rating-service
+        uri: lb://ratingService
         predicates:
         - Path=/api/ratings/**
-        filters:
-        - name: RequestRateLimiter
-          args:
-            key-resolver: '#{@userKeyResolver}'
-            redis-rate-limiter.replenishRate: 2
-            redis-rate-limiter.burstCapacity: 2
-        - RewritePath=/api/(?<ratings>.*), /$\{ratings}
-        - name: Hystrix
-          args:
-            name: booksFallbackCommand
-            fallbackUri: forward:/fallback/ratings
+        # filters:
+        # - name: RequestRateLimiter
+          # args:
+            # key-resolver: '#{@userKeyResolver}'
+            # redis-rate-limiter.replenishRate: 2
+            # redis-rate-limiter.burstCapacity: 2
+        # - RewritePath=/api/(?<ratings>.*), /$\{ratings}
+        # - name: Hystrix
+          # args:
+            # name: booksFallbackCommand
+            # fallbackUri: forward:/fallback/ratings
 eureka:
   client:
     serviceUrl:
