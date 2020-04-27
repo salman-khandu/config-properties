@@ -27,7 +27,7 @@ spring:
         - RewritePath=/api/(?<books>.*), /$\{books}
         - name: Hystrix
           args:
-            name: ratingsFallbackCommand
+            name: booksFallbackCommand
             fallbackUri: forward:/fallback/books
    
  
