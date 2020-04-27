@@ -1,7 +1,7 @@
 hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 2000
 spring:
   application:
-    name: api-gateway
+    name: gateway
   cloud:
     gateway:
       routes:
@@ -23,19 +23,13 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8888/eureka
+      defaultZone: http://localhost:8082/eureka
   instance:
     preferIpAddress: true
     
 server:
-  port: 8887
-  
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8082/eureka
-  instance:
-    preferIpAddress: true
+  port: 8080
+
 
 
 management:
