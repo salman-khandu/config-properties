@@ -5,8 +5,8 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: rate-service
-        uri: http://localhost:8084
+      - id: rating-service
+        uri: lb://rating-service
         predicates:
         - Path=/api/ratings/**
         filters:
@@ -17,18 +17,7 @@ spring:
           args:
             name: ratingsFallbackCommand
             fallbackUri: forward:/fallback/ratings
-            
-      - id: book-service
-        uri: http://localhost:8083
-        predicates:
-        - Path=/api/books/**
-        filters:
-        - StripPrefix=1
-        - RewritePath=/api/(?<books>.*), /$\{books}
-        - name: Hystrix
-          args:
-            name: booksFallbackCommand
-            fallbackUri: forward:/fallback/books         
+                   
            
 
 server:
