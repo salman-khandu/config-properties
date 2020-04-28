@@ -27,7 +27,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8082/eureka
-    register-with-eureka: false
+    register-with-eureka: true
   instance:
     preferIpAddress: true
     
