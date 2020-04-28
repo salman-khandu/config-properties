@@ -18,8 +18,8 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       routes:
-      - id: rate-service
-        uri: lb://rate-service
+      - id: rating-service
+        uri: lb://rating-service
         predicates:
         - Path=/api/ratings/**
         filters:
